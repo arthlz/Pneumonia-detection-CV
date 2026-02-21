@@ -22,6 +22,9 @@ Este projeto apresenta uma solução construída em **PyTorch** para a classific
   - Normalização utilizando médias e desvios-padrão do ImageNet.
   - Transformações sintéticas (RandomResizedCrop, RandomHorizontalFlip, RandomRotation, ColorJitter) para mitigar *overfitting*.
 
+# Arquivos .pth e dataset:
+ Uma vez que o github não aceita arquivos com mais de 30MB, eu separei o dataset e o modelo já treinado(vision transformers e resnet) e coloquei-os nesse <a href="https://drive.google.com/drive/folders/14kfJhBG6EoWypZf-7x8BWTTFI0fSapkM?usp=sharing">Drive 
+
 ## Estrutura do Projeto
 
 ```text
@@ -65,7 +68,7 @@ Dada a especificidade das radiografias, adotou-se a estratégia de fine-tuning p
 # Resultados
 Os resultados evidenciaram que a arquitetura ResNet-50 apresentou um desempenho levemente superior e mais estável. O modelo alcançou uma ROC-AUC de 0.9980 e um Recall de 0.98 para a classe de Pneumonia, indicando excelente capacidade de minimizar falsos negativos (cenário crítico onde um paciente doente seria liberado sem tratamento).
 
-# Reprodutibilidade:
+# Reprodutibilidade(Recomendo o uso do vscode como IDE):
    ```
    Todo o código foi produzido e rodou localmente no python 3.10.7
    ```
@@ -80,7 +83,7 @@ Os resultados evidenciaram que a arquitetura ResNet-50 apresentou um desempenho 
    cd Pneumonia-detection-CV
    ```
 
-3. Baixe o dataset original e organize as pastas(Use como apoio a *estrutura do projeto*)
+3. Baixe a pasta "dataset" presente no drive ou baixe o conjunto de dados presente no kaggle, mude o nome da pasta principal para dataset e organize as pastas(Use como apoio a *estrutura do projeto*)
    ```dataset
    Extraia os arquivos baixados e coloque-os na raiz do projeto dentro de uma pasta chamada dataset
    Certifique-se de que a estrutura esteja como: dataset/train/... e dataset/test_images/....
