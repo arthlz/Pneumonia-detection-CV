@@ -22,38 +22,43 @@ Este projeto apresenta uma solução construída em **PyTorch** para a classific
   - Normalização utilizando médias e desvios-padrão do ImageNet.
   - Transformações sintéticas (RandomResizedCrop, RandomHorizontalFlip, RandomRotation, ColorJitter) para mitigar *overfitting*.
 
-# Arquivos .pth e dataset:
+## Arquivos .pth e dataset:
  Uma vez que o github não aceita arquivos com mais de 30MB, eu separei o dataset e o modelo já treinado(vision transformers e resnet) e coloquei-os nesse <a href="https://drive.google.com/drive/folders/14kfJhBG6EoWypZf-7x8BWTTFI0fSapkM?usp=sharing">Drive 
 
 ## Estrutura do Projeto
 
 ```text
 
-  ├── 📂 Código dos modelos/            # Implementações e pesos das arquiteturas
+  ├── 📂 Código dos modelos/                # Pasta com todos os notebooks utilizados.
   │   ├── 📂 grad_cam/
-  │   │   └── 📓 gradcam.ipynb          # Notebook de explicabilidade (Grad-CAM)
+  │   │   └── 📓 gradcam.ipynb              # Notebook para IA explicativa (Grad-CAM)
+  │   │
   │   ├── 📂 resnet50/
-  │   │   ├── 📓 resnet50.ipynb         # Treinamento e avaliação ResNet
-  │   │   ├── 📓 gerar_csv_resnet.ipynb # Script para gerar submissão Kaggle
-  │   │   └── 📄 modelo_colab_resnet50.pth
+  │   │   ├── 📓 resnet50.ipynb             # Treinamento e avaliação ResNet
+  │   │   ├── 📓 gerar_csv_resnet.ipynb     # Script para gerar submissão Kaggle
+  │   │   └── 📄 modelo_colab_resnet50.pth  # <- Este artefato está presente para baixar no drive
+  │   │
   │   └── 📂 vision_transformers/
   │       ├── 📓 vision_transformers.ipynb # Treinamento do modelo ViT
   │       ├── 📓 gerar_csv_vision_transformers.ipynb
-  │       └── 📄 modelo_colab_vision_transformers.pth
+  │       └── 📄 modelo_colab_vision_transformers.pth # <- Este artefato está presente para baixar no drive
   │
-  ├── 📂 dataset/                       # Base de dados (Não versionada - 1.2 GB)
-  │   ├── 📂 train/                     # Imagens rotuladas (NORMAL/PNEUMONIA)
-  │   ├── 📂 test_images/               # Imagens de teste sem rótulo
+  ├── 📂 dataset/                           # Base de dados do kaggle e drive(1.2gb)
+  │   ├── 📂 train/                         # Imagens rotuladas (NORMAL/PNEUMONIA)
+  │   │   ├── 📂 NORMAL                 
+  │   │   ├── 📂 PNEUMONIA              
+  │   │
+  │   ├── 📂 test_images/                   # Imagens de teste sem rótulo(conjunto de teste)
   │   ├── 📄 train.csv
   │   └── 📄 test.csv
   │
-  ├── 📂 gradcam_results/               # Resultados dos mapas de calor
-  ├── 📂 graficos resnet50/             # Métricas visuais do modelo ResNet
-  ├── 📂 Gráficos vision transformers/  # Métricas visuais do modelo ViT
+  ├── 📂 gradcam_results/                   # Resultados dos mapas de calor
+  ├── 📂 graficos resnet50/                 # Métricas visuais do modelo ResNet
+  ├── 📂 Gráficos vision transformers/      # Métricas visuais do modelo ViT
   │
-  ├── 📄 .gitignore                     # Configurado para ignorar venv e dataset
-  ├── 📄 README.md                      # Documentação do projeto
-  └── 📄 requirements.txt               # Dependências do ambiente
+  ├── 📄 .gitignore                         # Configurado para ignorar venv e dataset
+  ├── 📄 README.md                          # Documentação do projeto
+  └── 📄 requirements.txt                   # Dependências do ambiente
 ```
 # Metodologia
 A análise inicial do problema indicou a necessidade de modelos robustos capazes de extrair características complexas de imagens médicas. O problema foi formulado como uma tarefa de classificação de imagens utilizando Transfer Learning.
